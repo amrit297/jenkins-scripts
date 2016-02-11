@@ -1,0 +1,5 @@
+import hudson.model.*
+
+def q = Jenkins.instance.queue
+
+q.items.findAll { it.task.name.startsWith('MCI') }.each { q.cancel(it.task) }
